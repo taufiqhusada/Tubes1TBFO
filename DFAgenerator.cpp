@@ -218,7 +218,6 @@ void writeToCsv(){
 }
 
 int main(){
-    ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
     /* Kamus */
     int stateNow=1000;
     string aksi;
@@ -226,9 +225,9 @@ int main(){
 
     memset(tabelTransisi,-1,sizeof(tabelTransisi)); //inisialisasi
     stateGenerator(0);
+    cout<<"preprocessing selesai"<<endl;
     //writeToCsv();     // cukup dilakukan 1 kali saja
-    
-    cout<<"wooii\n";
+
     // operasi
     do {
         cout<<"Masukkan aksi: ";
