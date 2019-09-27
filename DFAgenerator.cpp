@@ -166,7 +166,7 @@ void stateGenerator(int stateNow){
         if (isTransisiValid(stateNow,listAksi[i])){
             int nextState = transisi(stateNow,listAksi[i]);
             tabelTransisi[stateNow][i] = nextState;
-            if (!isEndState(nextState) && !isVisited[nextState]){
+            if (!isVisited[nextState]){
                 isVisited[nextState] = true;
                 stateGenerator(nextState);
             }
@@ -179,8 +179,9 @@ int transisiDFA(int stateNow,string aksi){
     return tabelTransisi[stateNow][enumerateAksi(aksi)];
 }
 
-bool isAksiValid(string aksi){
-    return (enumerateAksi(aksi)!=-1);
+bool isAksiValid(int stateNow, string aksi){
+    if (enumerateAksi(aksi)==-1) return false;
+    return (tabelTransisi[stateNow][enumerateAksi(aksi)]!=-1);
 }
 
 void printState(int stateNow){
@@ -208,12 +209,16 @@ void writeToCsv(){
                         myfile<<"( "<<getHygiene(tabelTransisi[stateNow][l])<<" "<<getEnergy(tabelTransisi[stateNow][l])<<" "<<getFun(tabelTransisi[stateNow][l])<<" )"<<",";
                     }
                     else{
-                        myfile<<",";
+                        myfile<<"(-1 -1 -1),";
                     }
                 }
                 myfile<<"\n";
             }
         }
+    }
+    myfile<<"(-1 -1 -1), ,";
+    for (int i = 0; i<=17; ++i){
+        myfile<<"(-1 -1 -1),";
     }
 }
 
@@ -224,16 +229,18 @@ int main(){
 
 
     memset(tabelTransisi,-1,sizeof(tabelTransisi)); //inisialisasi
-    stateGenerator(0);
-    cout<<"preprocessing selesai"<<endl;
+    stateGenerator(1000);
+    cout<<"preprocessing selesai\n";
     //writeToCsv();     // cukup dilakukan 1 kali saja
 
     // operasi
     do {
         cout<<"Masukkan aksi: ";
-        cin>>aksi;
-        if (!isAksiValid(aksi)){
-            cout<<"Aksi tiak valid\n";
+        
+        getline(cin,aksi);
+        
+        if (!isAksiValid(stateNow,aksi)){
+            cout<<"Aksi tidak valid\n";
         }
         else{
             stateNow = transisiDFA(stateNow,aksi);
@@ -241,6 +248,13 @@ int main(){
         }
         cout<<'\n';
     }while(!isEndState(stateNow));
+
+    if (stateNow == 0){
+        cout<<"Game Over. Anda Mati\n";
+    }
+    else{
+        cout<<"Selamat, Anda menang!!!!!!\n";
+    }
 
     return 0;
 }

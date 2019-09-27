@@ -1,5 +1,5 @@
 state awal, ,Tidur Siang,Tidur Malam,Makan Hamburger,Makan Pizza,Makan Steak And Beans,Minum Air,Minum Kopi,Minum Jus,Buang Air Kecil,Buang Air Besar,Bersosialisasi Ke Kafe,Bermain Media Sosial,Bermain Komputer,Mandi,Cuci Tangan,Mendengarkan Musik Di Radio,Membaca Koran,Membaca Novel,
-( 0 0 0 ), ,( 0 10 0 ),( 0 15 0 ),( 0 5 0 ),( 0 10 0 ),( 0 15 0 ),,,,( 5 0 0 ),,,,,,( 5 0 0 ),,,,
+( 0 0 0 ), ,,,,,,,,,,,,,,,,,,,
 ( 0 0 5 ), ,( 0 10 5 ),( 0 15 5 ),( 0 5 5 ),( 0 10 5 ),( 0 15 5 ),,,,( 5 0 5 ),,,,,,( 5 0 5 ),,,,
 ( 0 0 10 ), ,( 0 10 10 ),( 0 15 10 ),( 0 5 10 ),( 0 10 10 ),( 0 15 10 ),,,,( 5 0 10 ),,,,,,( 5 0 10 ),,,,
 ( 0 0 15 ), ,( 0 10 15 ),( 0 15 15 ),( 0 5 15 ),( 0 10 15 ),( 0 15 15 ),,,,( 5 0 15 ),,,,,,( 5 0 15 ),,,,
