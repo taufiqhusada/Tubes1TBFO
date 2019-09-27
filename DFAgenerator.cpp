@@ -137,8 +137,11 @@ int enumerateAksi(string aksi){
     else if (aksi=="Membaca Koran"){
         return 16;
     }
-    else { // membaca novel
+    else if (aksi == "Membaca Novel") {
         return 17;
+    }
+    else{
+        return -1;
     }
 }
 
@@ -171,6 +174,21 @@ void stateGenerator(int stateNow){
     }
 }
 
+int transisiDFA(int stateNow,string aksi){
+    /* prekondisi aksi valid */
+    return tabelTransisi[stateNow][enumerateAksi(aksi)];
+}
+
+bool isAksiValid(string aksi){
+    return (enumerateAksi(aksi)!=-1);
+}
+
+void printState(int stateNow){
+    printf("Hygiene = %d\n",getHygiene(stateNow));
+    printf("Energy = %d\n",getEnergy(stateNow));
+    printf("Fun = %d\n",getFun(stateNow));
+}
+
 void writeToCsv(){
     // prosedur untuk menuliskan semua state yang telah di generate ke dalam csv
     std::ofstream myfile;
@@ -201,9 +219,29 @@ void writeToCsv(){
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+    /* Kamus */
+    int stateNow=1000;
+    string aksi;
+
+
     memset(tabelTransisi,-1,sizeof(tabelTransisi)); //inisialisasi
     stateGenerator(0);
     //writeToCsv();     // cukup dilakukan 1 kali saja
+    
+    cout<<"wooii\n";
+    // operasi
+    do {
+        cout<<"Masukkan aksi: ";
+        cin>>aksi;
+        if (!isAksiValid(aksi)){
+            cout<<"Aksi tiak valid\n";
+        }
+        else{
+            stateNow = transisiDFA(stateNow,aksi);
+            printState(stateNow);
+        }
+        cout<<'\n';
+    }while(!isEndState(stateNow));
 
-
+    return 0;
 }
