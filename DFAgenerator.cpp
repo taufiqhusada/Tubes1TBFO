@@ -231,14 +231,14 @@ int main(){
     memset(tabelTransisi,-1,sizeof(tabelTransisi)); //inisialisasi
     stateGenerator(1000);
     cout<<"preprocessing selesai\n";
-    //writeToCsv();     // cukup dilakukan 1 kali saja
+    writeToCsv();     // cukup dilakukan 1 kali saja
 
     // operasi
     do {
         cout<<"Masukkan aksi: ";
-        
+
         getline(cin,aksi);
-        
+
         if (!isAksiValid(stateNow,aksi)){
             cout<<"Aksi tidak valid\n";
         }
