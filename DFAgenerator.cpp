@@ -193,7 +193,7 @@ void printState(int stateNow){
 void writeToCsv(){
     // prosedur untuk menuliskan semua state yang telah di generate ke dalam csv
     std::ofstream myfile;
-    myfile.open("output.csv");
+    myfile.open("tabel_transisi.csv");
     myfile<<"state awal"<<", ,";
     for (int i = 0; i<=17; ++i){
         myfile<<listAksi[i]<<",";
