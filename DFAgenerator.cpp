@@ -223,6 +223,7 @@ void writeToCsv(){
 }
 
 void preProcess(){
+    // prosedur untuk melakukan pre- processing yang mencakup inisialisasi array dan call prosedur stateGenerator
     memset(tabelTransisi,-1,sizeof(tabelTransisi)); //inisialisasi
     stateGenerator(1000);
     //cout<<"preprocessing selesai\n";
