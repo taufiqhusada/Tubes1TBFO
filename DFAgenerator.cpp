@@ -225,7 +225,7 @@ void writeToCsv(){
 void preProcess(){
     memset(tabelTransisi,-1,sizeof(tabelTransisi)); //inisialisasi
     stateGenerator(1000);
-    cout<<"preprocessing selesai\n";
+    //cout<<"preprocessing selesai\n";
     //writeToCsv();     // cukup dilakukan 1 kali saja
 }
 
@@ -234,6 +234,11 @@ int main(){
     int stateNow=1000;
     string aksi;
     preProcess();
+    cout<<"Selamat datang di The Sims Simulator"<<endl;
+    cout<<"Kondisi awal:"<<endl;
+    printState(stateNow);
+    cout<<endl;
+
     // operasi
     do {
         cout<<"Masukkan aksi: ";
