@@ -222,17 +222,18 @@ void writeToCsv(){
     }
 }
 
+void preProcess(){
+    memset(tabelTransisi,-1,sizeof(tabelTransisi)); //inisialisasi
+    stateGenerator(1000);
+    cout<<"preprocessing selesai\n";
+    //writeToCsv();     // cukup dilakukan 1 kali saja
+}
+
 int main(){
     /* Kamus */
     int stateNow=1000;
     string aksi;
-
-
-    memset(tabelTransisi,-1,sizeof(tabelTransisi)); //inisialisasi
-    stateGenerator(1000);
-    cout<<"preprocessing selesai\n";
-    writeToCsv();     // cukup dilakukan 1 kali saja
-
+    preProcess();
     // operasi
     do {
         cout<<"Masukkan aksi: ";
