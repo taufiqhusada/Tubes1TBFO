@@ -192,7 +192,7 @@ void printState(int stateNow){
 
 void writeToCsv(){
     // prosedur untuk menuliskan semua state yang telah di generate ke dalam csv
-    std::ofstream myfile;
+    ofstream myfile;
     myfile.open("tabel_transisi.csv");
     myfile<<"state awal"<<", ,";
     for (int i = 0; i<=17; ++i){
@@ -237,11 +237,21 @@ void printListAksi(){
     }
 }
 
+void judulProgram(){
+    ifstream fin("Judul.txt");
+    string s;
+    while (getline(fin,s)){
+        cout<<s<<endl;
+    }
+}
+
+
 int main(){
     /* Kamus */
     int stateNow=1000;
     string aksi;
     preProcess();
+    judulProgram();
     cout<<"Selamat datang di The Sims Simulator"<<endl;
     cout<<"Kondisi awal:"<<endl;
     printState(stateNow);
