@@ -230,6 +230,13 @@ void preProcess(){
     //writeToCsv();     // cukup dilakukan 1 kali saja
 }
 
+void printListAksi(){
+    cout<<"Berikut aksi yang tersedia:"<<endl;
+    for (int i=0; i<18; i++){
+        cout<<"- "<<listAksi[i]<<endl;
+    }
+}
+
 int main(){
     /* Kamus */
     int stateNow=1000;
@@ -239,7 +246,8 @@ int main(){
     cout<<"Kondisi awal:"<<endl;
     printState(stateNow);
     cout<<endl;
-
+    printListAksi();
+    cout<<endl;
     // operasi
     do {
         cout<<"Masukkan aksi: ";
