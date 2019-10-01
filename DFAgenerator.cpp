@@ -247,17 +247,19 @@ void judulProgram(){
 
 
 int main(){
-    /* Kamus */
     int stateNow=1000;
     string aksi;
     preProcess();
+    
     judulProgram();
     cout<<"Selamat datang di The Sims Simulator"<<endl;
     cout<<"Kondisi awal:"<<endl;
     printState(stateNow);
     cout<<endl;
+    
     printListAksi();
     cout<<endl;
+    
     // operasi
     do {
         cout<<"Masukkan aksi: ";
